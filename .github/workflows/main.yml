@@ -1,4 +1,4 @@
-name: Compile CGI
+name: Compile emcc
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
     - name: Compile C to CGI
       run: ./emcc -v
       
-- n -name: Compile C to CGI
+    -name: Compile C to CGI
       run: ./emcc hello.c -o hello.html
       
     - name: Upload compiled Html
