@@ -1,0 +1,27 @@
+name: Compile CGI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install GCC
+      run: sudo apt-get install -y gcc
+
+    - name: Compile C to CGI
+      run: gcc -O2 -o script.cgi myscript.c
+
+    - name: Upload compiled CGI
+      uses: actions/upload-artifact@v3
+      with:
+        name: script.cgi
+        path: ./script.cgi
+        
