@@ -13,15 +13,18 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Install GCC
-      run: sudo apt-get install -y gcc
+    - name: Install emcc
+      run: sudo apt-get install -y emscripten  
 
     - name: Compile C to CGI
-      run: gcc -O2 -o script.cgi myscript.c
-
-    - name: Upload compiled CGI
+      run: ./emcc -v
+      
+- n -name: Compile C to CGI
+      run: ./emcc hello.c -o hello.html
+      
+    - name: Upload compiled Html
       uses: actions/upload-artifact@v3
       with:
-        name: script.cgi
-        path: ./script.cgi
+        name: hello.html
+        path: ./hello.html
         
