@@ -22,9 +22,9 @@ jobs:
     -name: Compile C to html
     run: ./emcc hello.c -o hello.html
       
-    - name: Upload compile Html   
-      uses: actions/upload-artifact@v3
-      with:
+  -name: Upload compile Html   
+  uses: actions/upload-artifact@v3
+          with:
         name: hello.html
         path: ./hello.html
         
