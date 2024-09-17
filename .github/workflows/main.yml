@@ -19,10 +19,11 @@ jobs:
     - name: Check emcc version
       run: emcc -v
     - name: Compile C to html
-      run: emcc sdl.c -o index.html
+      run: emcc -s USE_SDL=2 -o index.js sdl2.c
+
 
     - name: Upload compiled Html
       uses: actions/upload-artifact@v4
       with:
-        name: index.html
-        path: ./index.html
+        name: index.js
+        path: ./index.js
