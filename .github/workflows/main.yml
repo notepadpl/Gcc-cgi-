@@ -21,7 +21,7 @@ jobs:
       run: emcc -v
 
     - name: Compile C to html
-      run: emcc sdl2.c -o index.html `sdl2-config --cflags --libs` -lSDL2
+      run: emcc -s USE_SDL=2 -c sdl2.c -o index.html `sdl2-config --cflags --libs` -lSDL2
 
 
 
