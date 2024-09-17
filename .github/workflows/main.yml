@@ -18,12 +18,8 @@ jobs:
     
     - name: Check emcc version
       run: emcc -v
-
     - name: Compile C to html
-      run: emcc hello.cpp -s WASM=1 -O3 -o index.html
-
-
-
+      run: emcc sdl.c -o index.html
 
     - name: Upload compiled Html
       uses: actions/upload-artifact@v3
