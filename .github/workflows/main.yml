@@ -20,7 +20,7 @@ jobs:
       run: emcc -v
 
     - name: Compile C to html
-      run: emcc sdl2.c -s WASM=1 -s USE_SDL=2 -O3 -o index.html
+      run: emcc main.cpp -s WASM=1 -s USE_SDL=2 -O3 -o index.html
 
 
 
