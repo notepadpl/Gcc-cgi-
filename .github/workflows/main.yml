@@ -16,15 +16,14 @@ jobs:
     - name: Install emcc
       run: sudo apt-get install -y emscripten  
 
-    - name: version emcc
-      run: ./emcc -v
-      
-    -name: Compile C to html
-    run: ./emcc hello.c -o hello.html
-      
-  -name: Upload compile Html   
-  uses: actions/upload-artifact@v3
-          with:
+    - name: Check emcc version
+      run: emcc -v
+
+    - name: Compile C to html
+      run: emcc hello.c -o hello.html
+
+    - name: Upload compiled Html
+      uses: actions/upload-artifact@v3
+      with:
         name: hello.html
         path: ./hello.html
-        
