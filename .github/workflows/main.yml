@@ -21,7 +21,8 @@ jobs:
       run: emcc -v
 
     - name: Compile C to html
-      run: emcc -s USE_SDL=2 -c sdl2.c -o index.html
+      run: emcc -s USE_SDL=2 -o index.html program.c
+
 
 
 
