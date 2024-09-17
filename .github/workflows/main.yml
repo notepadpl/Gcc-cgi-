@@ -20,7 +20,8 @@ jobs:
       run: emcc -v
 
     - name: Compile C to html
-      run: emcc v.c -o vi.html
+      run: emcc -s USE_SDL=2 -o index.html program.c
+
 
     - name: Upload compiled Html
       uses: actions/upload-artifact@v3
