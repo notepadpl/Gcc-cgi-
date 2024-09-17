@@ -15,12 +15,13 @@ jobs:
 
     - name: Install emcc
       run: sudo apt-get install -y emscripten  
-
+    - name: Install sdl2 
+      run: sudo apt-get install -y libsdl2-dev libsdl2-2.0-0
     - name: Check emcc version
       run: emcc -v
 
     - name: Compile C to html
-      run: emcc program2.c -s USE_SDL=1 -o index.html
+      run: emcc sdl2.c -o index.html `sdl2-config --cflags --libs` -lSDL2
 
 
 
