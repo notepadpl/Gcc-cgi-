@@ -27,5 +27,5 @@ jobs:
     - name: Upload compiled Html
       uses: actions/upload-artifact@v3
       with:
-        name: sdl.html
-        path: ./sdl.html
+        name: index.html
+        path: ./index.html
