@@ -18,8 +18,7 @@ jobs:
     
     - name: Check emcc version
       run: emcc -v
-    - name: Check emcc version
-      run: emcc --clear-cache
+
 
     - name: Compile C to html
       run: sudo emcc core.cpp -s WASM=1 -s USE_SDL=2 -O3 -o index.js --no-cache
