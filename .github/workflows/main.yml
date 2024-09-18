@@ -21,10 +21,10 @@ jobs:
 
 
     - name: Compile C to html
-      run: sudo emcc core.cpp -s WASM=1 -s USE_SDL=2 -O3 -o index.js --no-cache
+      run: emcc hello.c -s STANDALONE_WASM -o hello.wasm
 
     - name: Upload compiled Html
       uses: actions/upload-artifact@v4
       with:
-        name: index.js
-        path: ./index.js
+        name: hello.wasm
+        path: ./hello.wasm
