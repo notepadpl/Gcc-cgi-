@@ -22,7 +22,8 @@ jobs:
       run: emcc --clear-cache
 
     - name: Compile C to html
-      run:  sudo emcc core.cpp -s WASM=1 -s USE_SDL=2 -O3 -o index.js
+      run:  emcc core.cpp -s WASM=1 -s USE_SDL=2 -O3 -o index.js --no-cache
+
     - name: Upload compiled Html
       uses: actions/upload-artifact@v4
       with:
