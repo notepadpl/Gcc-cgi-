@@ -14,17 +14,16 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Install emcc
-      run: sudo apt-get install -y emscripten  
-    
+      run: sudo apt-get install -y emscripten
+
     - name: Check emcc version
       run: emcc -v
 
+    - name: Compile C to HTML, JS and WASM
+      run: emcc hello.c -o hello.html --preload-file hello.wasm
 
-    - name: Compile C to html
-      run: emcc hello.c -s STANDALONE_WASM -o hello.wasm
-
-    - name: Upload compiled Html
+    - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: hello.wasm
-        path: ./hello.wasm
+        name: Compiled files
+        path: .
