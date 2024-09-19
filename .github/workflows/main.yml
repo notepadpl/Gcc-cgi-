@@ -20,10 +20,7 @@ jobs:
       run: emcc -v
 
     - name: Compile C to object file
-      run: emcc hello.c -o hello.wasm
-
-    - name: Compile object file to HTML, JS and WASM
-      run: emcc hello.wasm -o hello.html
+      run: emcc hello.c -o hello.html
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
