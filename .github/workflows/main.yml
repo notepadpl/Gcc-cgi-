@@ -19,10 +19,11 @@ jobs:
     - name: Check emcc version
       run: emcc -v
 
-    - name: Compile C to HTML, JS and WASM
+    - name: Compile C to object file
       run: emcc hello.c -o hello.o
-    - name: Compile C to HTML, JS and WASM
-      run: emcc hello.o -o hello.html
+
+    - name: Compile object file to HTML, JS and WASM
+      run: emcc hello.o -o hello.html --preload-file hello.wasm
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
