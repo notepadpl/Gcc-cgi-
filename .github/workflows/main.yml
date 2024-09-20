@@ -15,7 +15,7 @@ jobs:
           sudo apt-get install -y libsdl2-dev libsdl2-ttf-dev
       - name: Build SDL2 Project
         run: |
-          emcc sdl2.c -o sdl2.html -s USE_SDL=2 -s FULL_ES3=1 -s USE_SDL_TTF=2 \
+          sudo emcc sdl2.c -o sdl2.html -s USE_SDL=2 -s FULL_ES3=1 -s USE_SDL_TTF=2 \
             -I/usr/include/SDL2 \
             -L/usr/lib/x86_64-linux-gnu \
             -lSDL2 -lSDL2_ttf
