@@ -21,10 +21,10 @@ jobs:
       run: emcc -v
 
     - name: Compile C to object file
-      run: emcc sdl.c -o sdl.html
+      run: emcc sdl2.c -o sdl2.html -s USE_SDL=2
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: files
+        name: filesdl
         path: ./
