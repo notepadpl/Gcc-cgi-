@@ -1,30 +1,27 @@
-
-name: Compile emcc
+name: Build SDL2 and SDL2_ttf Project
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Install emcc
-      run: sudo apt-get install -y emscripten
-
-    - name: Check emcc version
-      run: emcc -v
-
-    - name: Compile C to object file
-      run: emcc sdl2.c -o sdl2.html 
-
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: filesdl
-        path: ./
+      - uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y emcc
+          sudo apt-get install -y libsdl2-dev libsdl2-ttf-dev
+      - name: Build SDL2 Project
+        run: |
+          emcc sdl2.c -o sdl2.html -s USE_SDL=2 -s FULL_ES3=1 -s USE_SDL_TTF=2 \
+            -I/usr/include/SDL2 \
+            -L/usr/lib/x86_64-linux-gnu \
+            -lSDL2 -lSDL2_ttf
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Compiled Files
+          path: ./
