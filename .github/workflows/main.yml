@@ -20,7 +20,7 @@ jobs:
       run: emcc -v
 
     - name: Compile C to HTML,
-      run: em++ fttp.c -o index.html 
+      run: em++ telnet.cpp -o index.html 
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
