@@ -185,34 +185,30 @@ static void terminal_reset(void) {
 
 int main(int argc, char* argv[]) {
      char hostname[50];
-    int port;
+char ports[10]; // Use a char array for the port input
+int port;
 
-    if (argc < 3) {
-        printf("Podaj nazwę hosta np. wp.pl, google.pl, ftp.dlptest.com  : \n");
-        printf("host>>\n");
-        if (fgets(hostname, sizeof(hostname), stdin) == NULL) {
-            perror("fgets");
-            return 1;
-        }
-        hostname[strcspn(hostname, "\n")] = '\0'; // Usuwamy znak nowej linii
-
-        printf("Podaj port np. 21, 80, 443, 8080, 65535 ");
-        printf("port>>\n");
-        if (scanf("%d", &port) != 1) {
-            printf("Błędny format portu\n");
-            return 1;
-        }
-
-        // Walidacja portu
-        if (port < 1 || port > 65535) {
-            printf("Port musi być liczbą z zakresu 1-65535\n");
-            return 1;
-        }
-    } else {
-        // Jeśli podano argumenty wiersza poleceń, użyj ich
-   //     hostname = argv[1];
-        port = atoi(argv[2]);
+if (argc < 3) {
+    printf("Podaj nazwę hosta np. wp.pl, google.pl, ftp.dlptest.com  : \n");
+    printf("host>>\n");
+    if (fgets(hostname, sizeof(hostname), stdin) == NULL) {
+        perror("fgets");
+        return 1;
     }
+    hostname[strcspn(hostname, "\n")] = '\0'; // Remove newline
+
+    printf("Podaj port np. 21, 80, 443, 8080, 65535 \n");
+    printf("port>>\n");
+    if (fgets(ports, sizeof(ports), stdin) == NULL) {
+        printf("Błędny format portu\n");
+        return 1;
+    }
+    port = atoi(ports); // Convert the string to an integer
+} else {
+    // Jeśli podano argumenty wiersza poleceń, użyj ich
+    // hostname = argv[1];
+}
+
   struct timeval ts;
     ts.tv_sec = 1;  // Ustawienie timeoutu na 1 sekundę
     ts.tv_usec = 0; 
