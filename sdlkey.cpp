@@ -33,8 +33,7 @@ int main(int argc, char** argv) {
       *((Uint32*)screen->pixels + i * 256 + j) = SDL_MapRGBA(screen->format, i, j, 255-i, alpha);
     }
   }
-  if (SDL_MUSTLOCK(screen)) SDL_UnlockSurface(screen);
-  SDL_Flip(screen);
+
 SDL_Event event;
     
     // Sprawdzamy wszystkie zdarzenia SDL
@@ -54,6 +53,8 @@ SDL_Event event;
           
         }
     }
+      if (SDL_MUSTLOCK(screen)) SDL_UnlockSurface(screen);
+  SDL_Flip(screen);
   printf("Key pressed: %s\n", key);
             printf("Current input: %s\n", inputText.c_str());  // Wyświetlamy aktualny stan zmiennej
 
