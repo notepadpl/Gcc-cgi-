@@ -11,7 +11,7 @@ std::string inputText = "";
 int running = 1;
 int main(int argc, char** argv) {
   printf("hello, world!\n");
-
+   const char* key;
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Surface *screen = SDL_SetVideoMode(256, 256, 32, SDL_SWSURFACE);
 
@@ -44,19 +44,18 @@ SDL_Event event;
             //emscripten_cancel_main_loop(); // Zatrzymujemy pętlę gdy zamykamy aplikację
         } else if (event.type == SDL_KEYDOWN) {
             // Obsługujemy naciśnięcie klawisza
-            const char* key = SDL_GetKeyName(event.key.keysym.sym);
+             key = SDL_GetKeyName(event.key.keysym.sym);
 
             // Sprawdzamy, czy wciśnięty klawisz to pojedyncza litera lub liczba
             if (event.key.keysym.sym >= SDLK_a && event.key.keysym.sym <= SDLK_z) {
                 inputText += key;  // Dodajemy wprowadzony klawisz do zmiennej tekstowej
             }
 
-            printf("Key pressed: %s\n", key);
-            printf("Current input: %s\n", inputText.c_str());  // Wyświetlamy aktualny stan zmiennej
+          
         }
     }
-  printf("you should see a smoothly-colored square - no sharp lines but the square borders!\n");
-  printf("and here is some text that should be HTML-friendly: amp: |&| double-quote: |\"| quote: |'| less-than, greater-than, html-like tags: |<cheez></cheez>|\nanother line.\n");
+  printf("Key pressed: %s\n", key);
+            printf("Current input: %s\n", inputText.c_str());  // Wyświetlamy aktualny stan zmiennej
 
   SDL_Quit();
 
