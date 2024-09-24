@@ -11,12 +11,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Upload files via FTP
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
-        ftp-server: ftp://ftp.example.com  # Twój serwer FTP
+        ftp-server: ftp://busybox.prv.pl  # Twój serwer FTP
         ftp-username: ${{ secrets.FTP_USERNAME }}  # Zmienna środowiskowa z nazwą użytkownika
         ftp-password: ${{ secrets.FTP_PASSWORD }}  # Zmienna środowiskowa z hasłem
         local-dir: ./  # Katalog lokalny do przesłania
