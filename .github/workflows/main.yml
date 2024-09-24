@@ -20,10 +20,10 @@ jobs:
       run: emcc -v
 
     - name: Compile C to HTML,
-      run: em++ -s USE_SDL=2 -c sdl2.c -o sdl2.html
+      run: em++ scanf.c -o index.html
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: filet
+        name: filez
         path: .
