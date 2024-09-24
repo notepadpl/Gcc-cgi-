@@ -20,7 +20,7 @@ jobs:
       run: emcc -v
 
     - name: Compile C to HTML,
-      run: em++ sdlkey.cpp -o sdlkey.html 
+      run: em++ sdlkey2.cpp -o sdlkey.html 
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
