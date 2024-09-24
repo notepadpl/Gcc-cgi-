@@ -1,0 +1,23 @@
+name: Deploy website via FTP
+
+on:
+  push:
+    branches:
+      - main  # Lub inna gałąź, z której chcesz automatycznie przesyłać pliki
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Upload files via FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      with:
+        ftp-server: ftp://ftp.example.com  # Twój serwer FTP
+        ftp-username: ${{ secrets.FTP_USERNAME }}  # Zmienna środowiskowa z nazwą użytkownika
+        ftp-password: ${{ secrets.FTP_PASSWORD }}  # Zmienna środowiskowa z hasłem
+        local-dir: ./  # Katalog lokalny do przesłania
+        git-ftp-args: --delete  # Opcja do usunięcia plików, które nie istnieją lokalnie
