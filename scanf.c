@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-extern "C" {
-    EMSCRIPTEN_KEEPALIVE
     void getUserInput() {
         // Przechwycenie wyniku z prompt i zapisanie go do zmiennej w C
         const char* result = emscripten_run_script_string("prompt('Enter some text:')");
@@ -16,7 +14,7 @@ extern "C" {
         // Wyświetlenie wyniku
         printf("User entered: %s\n", userInput);
     }
-}
+
 
 void loop() {
     emscripten_run_script("getUserInput();");
