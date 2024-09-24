@@ -20,7 +20,7 @@ jobs:
       run: emcc -v
 
     - name: Compile C to HTML,
-      run: emcc sdl2.c -s 'USE_SDL=2' -o sdl2.html
+      run: emcc sdl2.c -o sdl2.html -lSDL2 
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
