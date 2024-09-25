@@ -30,7 +30,7 @@ rNrKYTX9g7z3RgJRmxWuGHbeu
 #include <termios.h>
 #include <termios.h>
 #include <fcntl.h>
- #include<iostream>
+ 
 #include<stdio.h>                // printf
 #include<string.h>                // strlen
 #include<string>                // string
@@ -38,7 +38,6 @@ rNrKYTX9g7z3RgJRmxWuGHbeu
 #include<arpa/inet.h>            // inet_addr
 #include<netdb.h>                // hostenta
 #include <unistd.h>
-//#include<iostream>
 #include<sys/socket.h>            // socket
 #include<arpa/inet.h>            // inet_addr
 #include <sys/time.h> 
