@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
 #endif
       *((Uint32*)screen->pixels + i * 256 + j) = SDL_MapRGBA(screen->format, i, j, 255-i, alpha);
     }
-  }
+  
 
 SDL_Event event;
     
@@ -49,14 +49,15 @@ SDL_Event event;
             // Sprawdzamy, czy wciśnięty klawisz to pojedyncza litera lub liczba
             if (event.key.keysym.sym >= SDLK_a && event.key.keysym.sym <= SDLK_z) {
                 inputText += key;  // Dodajemy wprowadzony klawisz do zmiennej tekstowej
+                  printf("Key pressed: %s\n", key);
+            printf("Current input: %s\n", inputText.c_str());  // Wyświetlamy aktualny stan zmiennej
             }
 
           
         }
     }
   
-  printf("Key pressed: %s\n", key);
-            printf("Current input: %s\n", inputText.c_str());  // Wyświetlamy aktualny stan zmiennej
+  }
     if (SDL_MUSTLOCK(screen)) SDL_UnlockSurface(screen);
   SDL_Flip(screen);
   SDL_Quit();
