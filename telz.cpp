@@ -203,9 +203,9 @@ int main(int argc, char* argv[]) {
     printf("Podany host: %s\n", host);
     printf("Podany port: %d\n", port);
 printf("piatek\n");
-        printf("Podano host: %s, port: %d\n", hostname, port);
-          char* ip_address = resolve_hostname(hostname);
-free(hostname);
+        printf("Podano host: %s, port: %d\n", host, port);
+          char* ip_address = resolve_hostname(host);
+
   struct timeval ts;
     ts.tv_sec = 1;  // Ustawienie timeoutu na 1 sekundę
     ts.tv_usec = 0; 
