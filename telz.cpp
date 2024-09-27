@@ -188,7 +188,7 @@ static void terminal_reset(void) {
 #define MAX_HOST_LEN 100
 int main(int argc, char* argv[]) {
 
-  char hostname[MAX_HOST_LEN];
+  char *hostname=(char*)malloc(99);
     int port;
 
     printf("Podaj nazwę hosta: ");
@@ -202,10 +202,10 @@ int main(int argc, char* argv[]) {
 
     printf("Podany host: %s\n", hostname);
     printf("Podany port: %d\n", port);
-
+printf("piatek\n");
         printf("Podano host: %s, port: %d\n", hostname, port);
           char* ip_address = resolve_hostname(hostname);
-
+free(hostname);
   struct timeval ts;
     ts.tv_sec = 1;  // Ustawienie timeoutu na 1 sekundę
     ts.tv_usec = 0; 
