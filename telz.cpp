@@ -188,11 +188,11 @@ static void terminal_reset(void) {
 #define MAX_HOST_LEN 100
 int main(int argc, char* argv[]) {
 
-  char *hostname=(char*)malloc(99);
+  char host[MAX_HOST_LEN];
     int port;
 
     printf("Podaj nazwę hosta: ");
-    scanf("%99s", hostname); // Ograniczamy długość wejścia do 99 znaków
+    scanf("%99s", host); // Ograniczamy długość wejścia do 99 znaków
 
     printf("Podaj numer portu: ");
     if (scanf("%d", &port) != 1) {
@@ -200,7 +200,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    printf("Podany host: %s\n", hostname);
+    printf("Podany host: %s\n", host);
     printf("Podany port: %d\n", port);
 printf("piatek\n");
         printf("Podano host: %s, port: %d\n", hostname, port);
